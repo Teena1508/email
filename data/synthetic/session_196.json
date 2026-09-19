@@ -1,0 +1,21 @@
+{
+  "session_id": "172.16.214.80:40107-203.0.113.163:110",
+  "pcap_file": "session_196.pcap",
+  "json_file": "session_196.json",
+  "protocol": "POP3",
+  "client_ip": "172.16.214.80",
+  "client_port": 40107,
+  "server_ip": "203.0.113.163",
+  "server_port": 110,
+  "attack_type": "expired_cert",
+  "expected_severity": "HIGH",
+  "ground_truth": {
+    "tls_version": "TLS 1.2",
+    "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "forward_secrecy": true,
+    "cert_status": "expired",
+    "starttls_status": "negotiated",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:38.209495+00:00"
+}

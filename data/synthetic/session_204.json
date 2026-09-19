@@ -1,0 +1,21 @@
+{
+  "session_id": "10.21.54.127:64741-192.168.1.104:143",
+  "pcap_file": "session_204.pcap",
+  "json_file": "session_204.json",
+  "protocol": "IMAP",
+  "client_ip": "10.21.54.127",
+  "client_port": 64741,
+  "server_ip": "192.168.1.104",
+  "server_port": 143,
+  "attack_type": "expired_cert",
+  "expected_severity": "HIGH",
+  "ground_truth": {
+    "tls_version": "TLS 1.2",
+    "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "forward_secrecy": true,
+    "cert_status": "expired",
+    "starttls_status": "negotiated",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:38.358339+00:00"
+}

@@ -1,0 +1,21 @@
+{
+  "session_id": "10.121.22.199:62424-192.168.1.205:143",
+  "pcap_file": "session_162.pcap",
+  "json_file": "session_162.json",
+  "protocol": "IMAP",
+  "client_ip": "10.121.22.199",
+  "client_port": 62424,
+  "server_ip": "192.168.1.205",
+  "server_port": 143,
+  "attack_type": "downgrade_attack",
+  "expected_severity": "HIGH",
+  "ground_truth": {
+    "tls_version": "TLS 1.0",
+    "cipher_suite": "TLS_RSA_WITH_AES_128_CBC_SHA",
+    "forward_secrecy": false,
+    "cert_status": "valid",
+    "starttls_status": "negotiated",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:37.237000+00:00"
+}

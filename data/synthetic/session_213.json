@@ -1,0 +1,21 @@
+{
+  "session_id": "192.168.199.109:56501-198.51.100.133:995",
+  "pcap_file": "session_213.pcap",
+  "json_file": "session_213.json",
+  "protocol": "POP3",
+  "client_ip": "192.168.199.109",
+  "client_port": 56501,
+  "server_ip": "198.51.100.133",
+  "server_port": 995,
+  "attack_type": "self_signed_cert",
+  "expected_severity": "MEDIUM",
+  "ground_truth": {
+    "tls_version": "TLS 1.2",
+    "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "forward_secrecy": true,
+    "cert_status": "self_signed",
+    "starttls_status": "negotiated",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:38.792551+00:00"
+}

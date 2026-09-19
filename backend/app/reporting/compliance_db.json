@@ -1,0 +1,170 @@
+{
+  "UNENCRYPTED_EMAIL_TRAFFIC": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.1",
+      "title": "Mandatory Transport Layer Encryption",
+      "description": "Government mail servers MUST enforce TLS encryption for all incoming and outgoing email protocol connections."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.1",
+      "title": "Strong Cryptography for Open Transmissions",
+      "description": "Cardholder data MUST be encrypted during transmission across public and open networks using strong cryptography."
+    },
+    {
+      "framework": "RFC 8314",
+      "clause": "Section 3.1",
+      "title": "Cleartext Email Transmission Considered Obsolete",
+      "description": "Cleartext transmission of email credentials and message content is explicitly designated as obsolete."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.10",
+      "title": "Encrypt Sensitive Data in Transit",
+      "description": "Enforce TLS for all network data in transit across mail infrastructure interfaces."
+    }
+  ],
+  "DEPRECATED_TLS_VERSION": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.1.1",
+      "title": "TLS Protocol Version Selection Standards",
+      "description": "TLS 1.0 and TLS 1.1 SHALL NOT be supported; servers MUST be configured for TLS 1.2 or TLS 1.3."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.2",
+      "title": "Prohibition of Early TLS Protocols",
+      "description": "Early TLS (TLS 1.0 and SSL 3.0) is not strong cryptography and MUST be completely disabled."
+    },
+    {
+      "framework": "RFC 8314",
+      "clause": "Section 3.3",
+      "title": "Minimum TLS Version Requirements",
+      "description": "Email submission and access implementations MUST support TLS 1.2 or higher."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.11",
+      "title": "Disable Legacy & Deprecated Protocols",
+      "description": "Disable TLS 1.0, 1.1, and SSLv3 across all mail server configurations."
+    }
+  ],
+  "WEAK_CIPHER_SUITE": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.3.1",
+      "title": "Approved Cipher Suite Specifications",
+      "description": "Cipher suites utilizing 3DES, RC4, NULL, or EXPORT algorithms are strictly prohibited."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.1",
+      "title": "Strong Encryption Algorithm Enforcement",
+      "description": "Ciphers with key length < 128 bits or known weak algorithms (RC4, 3DES) do not satisfy PCI compliance."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.11",
+      "title": "Secure Cipher Suite Configuration",
+      "description": "Disable weak stream and block ciphers across mail transfer agents."
+    }
+  ],
+  "NO_FORWARD_SECRECY": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.3.2",
+      "title": "Ephemeral Key Exchange Preference",
+      "description": "TLS configurations SHOULD prefer cipher suites offering Ephemeral Diffie-Hellman (ECDHE or DHE)."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.11",
+      "title": "Perfect Forward Secrecy Preference",
+      "description": "Configure mail servers to prioritize Perfect Forward Secrecy (PFS) key exchanges."
+    }
+  ],
+  "EXPIRED_CERTIFICATE": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.4.1",
+      "title": "Certificate Lifetime and Validity",
+      "description": "Certificates MUST be valid at time of evaluation and renewed prior to expiration."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.1",
+      "title": "Valid Trust Certificates",
+      "description": "Keys and certificates used for transmission encryption MUST be valid and unexpired."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.12",
+      "title": "Manage Certificate Lifecycles",
+      "description": "Ensure automated renewal of X.509 certificates prior to expiration date."
+    }
+  ],
+  "WEAK_CERT_RSA_KEY": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.4.2",
+      "title": "Minimum Public Key Size Standards",
+      "description": "RSA keys MUST be at least 2048 bits in length."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.1",
+      "title": "Minimum Asymmetric Key Size",
+      "description": "RSA public keys used for server authentication must be 2048 bits or greater."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.12",
+      "title": "Strong Key Length Enforcement",
+      "description": "Enforce minimum 2048-bit RSA keys for server certificates."
+    }
+  ],
+  "SHA1_CERT_SIGNATURE": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.4.3",
+      "title": "Approved Signature Digest Algorithms",
+      "description": "Certificates signed with SHA-1 digest algorithms SHALL NOT be accepted."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.1",
+      "title": "Deprecated Hash Algorithms",
+      "description": "SHA-1 signatures are deprecated and do not meet strong cryptography criteria."
+    }
+  ],
+  "SELF_SIGNED_CERTIFICATE": [
+    {
+      "framework": "NIST SP 800-52 Rev. 2",
+      "clause": "Section 3.4.1",
+      "title": "Trusted Certificate Authority Chains",
+      "description": "Certificates MUST be issued by an approved or trusted Certificate Authority."
+    },
+    {
+      "framework": "PCI-DSS 4.0",
+      "clause": "Requirement 4.2.1",
+      "title": "Trusted CA Certificates",
+      "description": "Certificates used for public transmissions must be issued by a recognized CA."
+    },
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 3.12",
+      "title": "CA Trust Validation",
+      "description": "Untrusted self-signed certificates should not be used in production."
+    }
+  ],
+  "JA3_KNOWN_MALICIOUS_FINGERPRINT": [
+    {
+      "framework": "CIS Benchmarks",
+      "clause": "Control 13.3",
+      "title": "Network Threat & Beacon Detection",
+      "description": "Detect and flag known malicious TLS fingerprints and C2 beacons."
+    }
+  ]
+}

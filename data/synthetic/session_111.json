@@ -1,0 +1,21 @@
+{
+  "session_id": "192.168.14.72:40876-192.168.1.64:25",
+  "pcap_file": "session_111.pcap",
+  "json_file": "session_111.json",
+  "protocol": "SMTP",
+  "client_ip": "192.168.14.72",
+  "client_port": 40876,
+  "server_ip": "192.168.1.64",
+  "server_port": 25,
+  "attack_type": "starttls_stripping",
+  "expected_severity": "CRITICAL",
+  "ground_truth": {
+    "tls_version": null,
+    "cipher_suite": null,
+    "forward_secrecy": false,
+    "cert_status": "none",
+    "starttls_status": "stripped_or_missing",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:35.773195+00:00"
+}

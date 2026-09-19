@@ -1,0 +1,21 @@
+{
+  "session_id": "192.168.186.185:58310-192.168.1.42:993",
+  "pcap_file": "session_007.pcap",
+  "json_file": "session_007.json",
+  "protocol": "IMAP",
+  "client_ip": "192.168.186.185",
+  "client_port": 58310,
+  "server_ip": "192.168.1.42",
+  "server_port": 993,
+  "attack_type": "starttls_stripping",
+  "expected_severity": "CRITICAL",
+  "ground_truth": {
+    "tls_version": null,
+    "cipher_suite": null,
+    "forward_secrecy": false,
+    "cert_status": "none",
+    "starttls_status": "stripped_or_missing",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:32.797446+00:00"
+}

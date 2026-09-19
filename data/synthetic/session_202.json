@@ -1,0 +1,21 @@
+{
+  "session_id": "172.16.38.5:50140-203.0.113.130:25",
+  "pcap_file": "session_202.pcap",
+  "json_file": "session_202.json",
+  "protocol": "SMTP",
+  "client_ip": "172.16.38.5",
+  "client_port": 50140,
+  "server_ip": "203.0.113.130",
+  "server_port": 25,
+  "attack_type": "downgrade_attack",
+  "expected_severity": "HIGH",
+  "ground_truth": {
+    "tls_version": "TLS 1.0",
+    "cipher_suite": "TLS_RSA_WITH_AES_128_CBC_SHA",
+    "forward_secrecy": false,
+    "cert_status": "valid",
+    "starttls_status": "negotiated",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:38.321393+00:00"
+}

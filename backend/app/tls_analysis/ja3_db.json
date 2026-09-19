@@ -1,0 +1,146 @@
+{
+  "ja3_clients": [
+    {
+      "hash": "e7d705a3286e415879edcb200722f375",
+      "name": "Python urllib / Default Requests TLS",
+      "category": "Automated Tool",
+      "description": "Default uncustomized Python urllib ClientHello fingerprint frequently used by automated mail scrapers & botnets.",
+      "severity": "LOW"
+    },
+    {
+      "hash": "aa7434311097e30d704d27f6dd2b376c",
+      "name": "CobaltStrike C2 Beacon (Default)",
+      "category": "Malware C2",
+      "description": "Default CobaltStrike Malleable C2 HTTPS beacon TLS client fingerprint.",
+      "severity": "CRITICAL"
+    },
+    {
+      "hash": "72a589da586844d7f0818ce684948eea",
+      "name": "TrickBot Banking Trojan",
+      "category": "Malware",
+      "description": "TrickBot malware client TLS handshake fingerprint observed in credential harvesting campaigns.",
+      "severity": "CRITICAL"
+    },
+    {
+      "hash": "a0e9f5d64349fb13191bc781f81f42e1",
+      "name": "Metasploit Meterpreter Reverse HTTPS",
+      "category": "Penetration Testing / C2",
+      "description": "Default Metasploit payload client TLS fingerprint.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "51c64c77e60f3980eea0a10352e6380d",
+      "name": "Emotet Downloader",
+      "category": "Malware",
+      "description": "Emotet botnet email downloader client fingerprint.",
+      "severity": "CRITICAL"
+    },
+    {
+      "hash": "3b5074b1b082c6160527077a9427d3ae",
+      "name": "Qakbot / Qbot Loader",
+      "category": "Malware",
+      "description": "Qakbot email malspam loader client TLS fingerprint.",
+      "severity": "CRITICAL"
+    },
+    {
+      "hash": "67346d809276286ed2d0a15e0f8d08cb",
+      "name": "Legacy Windows XP / IE6 SSL Client",
+      "category": "Obsolete Stack",
+      "description": "Obsolete Windows XP SChannel TLS client fingerprint lacking modern cipher support.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "06b00693a7266e745672d3e42145e69d",
+      "name": "Go-http-client (Default)",
+      "category": "Automated Tool",
+      "description": "Default Go HTTP client TLS fingerprint used by automated enumeration tools.",
+      "severity": "LOW"
+    },
+    {
+      "hash": "d1e39a341e4113e63980ea2189d2d88f",
+      "name": "Nmap NSE SSL Enum Scripts",
+      "category": "Scanner",
+      "description": "Nmap vulnerability scanner ClientHello fingerprint.",
+      "severity": "MEDIUM"
+    },
+    {
+      "hash": "c043e887e41185f385c57b70c36746ef",
+      "name": "Java 1.6 / 1.7 Legacy Client",
+      "category": "Obsolete Stack",
+      "description": "Legacy Java runtime TLS client fingerprint lacking ECDHE & TLS 1.2+ support.",
+      "severity": "HIGH"
+    }
+  ],
+  "ja3s_servers": [
+    {
+      "hash": "ec74a5c51106f0419184d0dd08fb05bc",
+      "name": "Legacy OpenSSL 0.9.8 Server",
+      "category": "Obsolete Server",
+      "description": "OpenSSL 0.9.8 ServerHello fingerprint supporting SSLv3 and weak ciphers.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "ae4edc6faf64d08308082ad26be6072a",
+      "name": "CobaltStrike C2 Server (Default Cert)",
+      "category": "Malware C2",
+      "description": "Default CobaltStrike HTTPS listener ServerHello fingerprint.",
+      "severity": "CRITICAL"
+    },
+    {
+      "hash": "8432a5df03f70b4f8d9516ed5d050d28",
+      "name": "SSL 3.0 / TLS 1.0 Weak Server",
+      "category": "Deprecated Server",
+      "description": "Deprecating server responding with TLS 1.0 and static RSA cipher suites.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "63a830026e6d15f3e49e29548d7d91e6",
+      "name": "Metasploit Handler Server",
+      "category": "Penetration Testing",
+      "description": "Default Metasploit multi-handler HTTPS listener ServerHello fingerprint.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "55f52479e057396c21e6e8e811197607",
+      "name": "Windows Server 2003 SChannel",
+      "category": "Obsolete Server",
+      "description": "Windows Server 2003 IIS/SChannel legacy ServerHello fingerprint.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "d1d84f8ee96f43e3f6d7ab7084534f3c",
+      "name": "RC4-SHA Weak Mail Server",
+      "category": "Weak Cryptography",
+      "description": "Server selecting RC4-SHA stream cipher.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "363297a7638361099f7832811a2f643e",
+      "name": "3DES-EDE-CBC Weak Mail Server",
+      "category": "Weak Cryptography",
+      "description": "Server selecting 3DES cipher suite vulnerable to Sweet32 attack.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "15af977ce25de4e2bc0591d161138400",
+      "name": "Nginx 1.0.x Default TLS Server",
+      "category": "Legacy Server",
+      "description": "Outdated Nginx 1.0 ServerHello fingerprint.",
+      "severity": "MEDIUM"
+    },
+    {
+      "hash": "2816999a48d88c9f091c6e1e8b28efd2",
+      "name": "Self-Signed Test C2 Server",
+      "category": "Suspicious Server",
+      "description": "ServerHello fingerprint associated with unverified rogue mail gateways.",
+      "severity": "HIGH"
+    },
+    {
+      "hash": "fa753381a1d129761bc9d4b0051e89ef",
+      "name": "Apache 2.2 mod_ssl Default",
+      "category": "Legacy Server",
+      "description": "Apache 2.2 mod_ssl ServerHello default fingerprint.",
+      "severity": "MEDIUM"
+    }
+  ]
+}

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Infrastructure Cryptographic Forensic Report - {{ report.run_id }}</title>
+    <style>
+        @page {
+            size: A4 portrait;
+            margin: 15mm;
+        }
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #1e293b;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            font-size: 11pt;
+            line-height: 1.4;
+        }
+        .header-container {
+            border-bottom: 2px solid #3b82f6;
+            padding-bottom: 12px;
+            margin-bottom: 20px;
+        }
+        .header-title {
+            font-size: 20pt;
+            font-weight: bold;
+            color: #0f172a;
+            margin: 0;
+        }
+        .header-subtitle {
+            font-size: 10pt;
+            color: #64748b;
+            margin-top: 4px;
+        }
+        .badge {
+            display: inline-block;
+            padding: 3px 8px;
+            font-size: 9pt;
+            font-weight: bold;
+            border-radius: 4px;
+            text-transform: uppercase;
+        }
+        .badge-critical { background-color: #ffe4e6; color: #e11d48; border: 1px solid #f43f5e; }
+        .badge-high { background-color: #ffedd5; color: #c2410c; border: 1px solid #f97316; }
+        .badge-medium { background-color: #fef3c7; color: #b45309; border: 1px solid #f59e0b; }
+        .badge-low { background-color: #d1fae5; color: #047857; border: 1px solid #10b981; }
+        
+        .section-title {
+            font-size: 14pt;
+            font-weight: bold;
+            color: #0f172a;
+            border-bottom: 1px solid #cbd5e1;
+            padding-bottom: 4px;
+            margin-top: 24px;
+            margin-bottom: 12px;
+        }
+        .summary-grid {
+            width: 100%;
+            margin-bottom: 15px;
+        }
+        .summary-card {
+            background-color: #f8fafc;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 10px;
+            text-align: center;
+        }
+        .stat-value {
+            font-size: 18pt;
+            font-weight: bold;
+            color: #1e293b;
+        }
+        .stat-label {
+            font-size: 8pt;
+            color: #64748b;
+            text-transform: uppercase;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+            font-size: 9.5pt;
+        }
+        th, td {
+            padding: 7px 10px;
+            text-align: left;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        th {
+            background-color: #f1f5f9;
+            color: #334155;
+            font-weight: bold;
+        }
+        .session-card {
+            background-color: #ffffff;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            padding: 14px;
+            margin-bottom: 16px;
+            page-break-inside: avoid;
+        }
+        .session-card-header {
+            border-bottom: 1px solid #e2e8f0;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+        }
+        .explanation-box {
+            background-color: #f0f9ff;
+            border-left: 4px solid #0284c7;
+            padding: 8px 12px;
+            margin-top: 10px;
+            border-radius: 0 4px 4px 0;
+        }
+        .explanation-title {
+            font-size: 9pt;
+            font-weight: bold;
+            color: #0369a1;
+            margin-bottom: 4px;
+        }
+        .bullet-list {
+            margin: 4px 0 0 16px;
+            padding: 0;
+            font-size: 9pt;
+            color: #334155;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Header -->
+    <div class="header-container">
+        <div class="header-title">Email Infrastructure Forensic Report</div>
+        <div class="header-subtitle">
+            Analysis Run ID: <strong>{{ report.run_id }}</strong> | Generated: {{ report.generated_at }}
+        </div>
+    </div>
+
+    <!-- Executive Summary -->
+    <div class="section-title">Executive Summary</div>
+    
+    <table class="summary-grid">
+        <tr>
+            <td width="25%">
+                <div class="summary-card">
+                    <div class="stat-value">{{ report.executive_summary.total_sessions }}</div>
+                    <div class="stat-label">Total Sessions</div>
+                </div>
+            </td>
+            <td width="25%">
+                <div class="summary-card">
+                    <div class="stat-value">{{ report.executive_summary.overall_posture_score }}/100</div>
+                    <div class="stat-label">Security Posture Score</div>
+                </div>
+            </td>
+            <td width="25%">
+                <div class="summary-card">
+                    <div class="stat-value">{{ report.executive_summary.overall_posture_status }}</div>
+                    <div class="stat-label">Posture Status</div>
+                </div>
+            </td>
+            <td width="25%">
+                <div class="summary-card">
+                    <div style="margin-top: 4px;">
+                        <span class="badge badge-critical">{{ report.executive_summary.severity_counts.CRITICAL }} CRIT</span>
+                        <span class="badge badge-high">{{ report.executive_summary.severity_counts.HIGH }} HIGH</span>
+                    </div>
+                </div>
+            </td>
+        </tr>
+    </table>
+
+    <!-- Compliance Readiness -->
+    <div class="section-title">Compliance Framework Readiness</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Framework</th>
+                <th>Readiness %</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for fw_name, fw_data in report.executive_summary.compliance_posture.items() %}
+            <tr>
+                <td><strong>{{ fw_name }}</strong></td>
+                <td>{{ fw_data }}%</td>
+                <td>
+                    {% if fw_data == 100.0 %}
+                        <span class="badge badge-low">COMPLIANT</span>
+                    {% elif fw_data >= 70.0 %}
+                        <span class="badge badge-medium">NEEDS ATTENTION</span>
+                    {% else %}
+                        <span class="badge badge-critical">NON COMPLIANT</span>
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Top 5 Riskiest Sessions -->
+    <div class="section-title">Top Riskiest Network Sessions</div>
+    <table>
+        <thead>
+            <tr>
+                <th>Session ID</th>
+                <th>Protocol</th>
+                <th>Risk Score</th>
+                <th>Severity</th>
+                <th>Top Risk Driver</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for sess in report.executive_summary.top_5_riskiest %}
+            <tr>
+                <td><code>{{ sess.session_id }}</code></td>
+                <td>{{ sess.protocol }}</td>
+                <td><strong>{{ sess.risk_score }}</strong></td>
+                <td>
+                    <span class="badge badge-{{ sess.severity.lower() }}">{{ sess.severity }}</span>
+                </td>
+                <td>{{ sess.top_risk_driver }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <!-- Detailed Session Cards -->
+    <div class="section-title">Per-Session Cryptographic Analysis & SHAP Explanations</div>
+
+    {% for item in report.session_details %}
+    <div class="session-card">
+        <div class="session-card-header">
+            <div style="float: right;">
+                <span class="badge badge-{{ item.prediction.severity.lower() }}">{{ item.prediction.severity }}</span>
+                <span style="font-weight: bold; font-size: 11pt; margin-left: 8px;">Risk Score: {{ item.prediction.risk_score }}/100</span>
+            </div>
+            <strong style="font-size: 11pt;">{{ item.session.session_id }}</strong>
+            <span style="color: #64748b; font-size: 9pt;">({{ item.session.protocol }})</span>
+        </div>
+
+        <table>
+            <tr>
+                <td width="30%"><strong>Encryption State:</strong> {{ item.session.encryption_type }}</td>
+                <td width="35%"><strong>Negotiated Version:</strong> {{ item.assessment.tls_version_negotiated or 'None (Plaintext)' }}</td>
+                <td width="35%"><strong>Cipher Suite:</strong> {{ item.assessment.cipher_suite or 'None' }}</td>
+            </tr>
+            <tr>
+                <td><strong>Key Exchange:</strong> {{ item.assessment.key_exchange or 'None' }}</td>
+                <td><strong>Forward Secrecy:</strong> {{ 'Yes (ECDHE/DHE)' if item.assessment.is_forward_secrecy else 'No (Static RSA)' }}</td>
+                <td><strong>Certificate Status:</strong> {{ item.assessment.cert_details.subject_cn if item.assessment.cert_details else 'No Cert' }}</td>
+            </tr>
+        </table>
+
+        <!-- SHAP Explanation Box -->
+        <div class="explanation-box">
+            <div class="explanation-title">AI SHAP Risk Score Attribution:</div>
+            <ul class="bullet-list">
+                {% for sentence in item.prediction.explanation_summary %}
+                <li>{{ sentence }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+    {% endfor %}
+
+</body>
+</html>

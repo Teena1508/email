@@ -1,0 +1,12 @@
+[
+  "tls_version_ordinal",
+  "cipher_strength_score",
+  "has_forward_secrecy",
+  "cert_validity_days",
+  "key_length_bits",
+  "sig_algo_strength",
+  "ja3_rarity_score",
+  "starttls_anomaly_flag",
+  "finding_count_critical_high",
+  "finding_count_medium"
+]

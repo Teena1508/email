@@ -1,0 +1,21 @@
+{
+  "session_id": "172.16.160.189:43235-198.51.100.62:993",
+  "pcap_file": "session_133.pcap",
+  "json_file": "session_133.json",
+  "protocol": "IMAP",
+  "client_ip": "172.16.160.189",
+  "client_port": 43235,
+  "server_ip": "198.51.100.62",
+  "server_port": 993,
+  "attack_type": "self_signed_cert",
+  "expected_severity": "MEDIUM",
+  "ground_truth": {
+    "tls_version": "TLS 1.2",
+    "cipher_suite": "TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256",
+    "forward_secrecy": true,
+    "cert_status": "self_signed",
+    "starttls_status": "negotiated",
+    "ja3_anomaly": false
+  },
+  "generated_at": "2026-09-19T19:36:36.447133+00:00"
+}
