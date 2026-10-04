@@ -1,4 +1,9 @@
-import shap
+try:
+    import shap
+    HAS_SHAP = True
+except ImportError:
+    HAS_SHAP = False
+
 import numpy as np
 from typing import List, Dict, Tuple, Any
 from app.ml.models import RiskFactor
@@ -21,29 +26,40 @@ class RiskExplainer:
     """
     SHAP TreeExplainer wrapper providing per-session feature attributions
     and plain-English sentence explanations of risk score drivers.
+    Includes lightweight fallback when SHAP is not installed.
     """
 
     def __init__(self, classifier_model):
         self.model = classifier_model
-        self.explainer = shap.TreeExplainer(self.model)
+        self.explainer = None
+        if HAS_SHAP and classifier_model is not None:
+            try:
+                self.explainer = shap.TreeExplainer(self.model)
+            except Exception:
+                self.explainer = None
 
     def explain(self, feature_vector: np.ndarray, base_risk_score: float) -> Tuple[List[RiskFactor], List[str]]:
         """
-        Calculates SHAP values for a 1D feature vector (10 features) and generates human-readable explanations.
+        Calculates feature attributions (using SHAP if available or feature importance fallback) and generates human-readable explanations.
         """
         X = feature_vector.reshape(1, -1)
-        shap_vals = self.explainer.shap_values(X)
-
-        # Handle multiclass vs single binary SHAP output formats
-        if isinstance(shap_vals, list):
-            # For multiclass, take highest risk class (class 2 HIGH or 3 CRITICAL) or sum positive impacts
-            high_risk_idx = min(len(shap_vals) - 1, 3)
-            vector_shap = shap_vals[high_risk_idx][0]
-        elif len(shap_vals.shape) == 3:
-            high_risk_idx = min(shap_vals.shape[2] - 1, 3)
-            vector_shap = shap_vals[0, :, high_risk_idx]
+        if self.explainer is not None:
+            shap_vals = self.explainer.shap_values(X)
+            # Handle multiclass vs single binary SHAP output formats
+            if isinstance(shap_vals, list):
+                high_risk_idx = min(len(shap_vals) - 1, 3)
+                vector_shap = shap_vals[high_risk_idx][0]
+            elif len(shap_vals.shape) == 3:
+                high_risk_idx = min(shap_vals.shape[2] - 1, 3)
+                vector_shap = shap_vals[0, :, high_risk_idx]
+            else:
+                vector_shap = shap_vals[0]
         else:
-            vector_shap = shap_vals[0]
+            # Lightweight feature contribution fallback using model feature importances
+            importances = getattr(self.model, "feature_importances_", np.ones(len(FEATURE_NAMES)) / len(FEATURE_NAMES))
+            # Shift features around baseline for positive/negative direction
+            vector_shap = importances * (feature_vector - 0.3)
+
 
         factors: List[RiskFactor] = []
         sentences: List[str] = []

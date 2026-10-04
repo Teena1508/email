@@ -1,12 +1,12 @@
 {
-  "session_id": "192.168.70.106:45578-203.0.113.163:110",
+  "session_id": "192.168.97.98:42183-203.0.113.138:995",
   "pcap_file": "session_143.pcap",
   "json_file": "session_143.json",
   "protocol": "POP3",
-  "client_ip": "192.168.70.106",
-  "client_port": 45578,
-  "server_ip": "203.0.113.163",
-  "server_port": 110,
+  "client_ip": "192.168.97.98",
+  "client_port": 42183,
+  "server_ip": "203.0.113.138",
+  "server_port": 995,
   "attack_type": "starttls_stripping",
   "expected_severity": "CRITICAL",
   "ground_truth": {
@@ -17,5 +17,5 @@
     "starttls_status": "stripped_or_missing",
     "ja3_anomaly": false
   },
-  "generated_at": "2026-09-19T19:36:36.692821+00:00"
+  "generated_at": "2026-09-19T19:44:43.696163+00:00"
 }

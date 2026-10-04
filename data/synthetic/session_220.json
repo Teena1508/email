@@ -1,12 +1,12 @@
 {
-  "session_id": "10.108.127.84:51775-198.51.100.165:143",
+  "session_id": "192.168.177.97:52753-198.51.100.245:11110",
   "pcap_file": "session_220.pcap",
   "json_file": "session_220.json",
-  "protocol": "IMAP",
-  "client_ip": "10.108.127.84",
-  "client_port": 51775,
-  "server_ip": "198.51.100.165",
-  "server_port": 143,
+  "protocol": "POP3",
+  "client_ip": "192.168.177.97",
+  "client_port": 52753,
+  "server_ip": "198.51.100.245",
+  "server_port": 11110,
   "attack_type": "expired_cert",
   "expected_severity": "HIGH",
   "ground_truth": {
@@ -17,5 +17,5 @@
     "starttls_status": "negotiated",
     "ja3_anomaly": false
   },
-  "generated_at": "2026-09-19T19:36:39.030611+00:00"
+  "generated_at": "2026-09-19T19:44:45.727722+00:00"
 }

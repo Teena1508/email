@@ -1,21 +1,21 @@
 {
-  "session_id": "192.168.189.138:40218-203.0.113.67:25",
+  "session_id": "172.16.242.26:43422-203.0.113.227:110",
   "pcap_file": "session_131.pcap",
   "json_file": "session_131.json",
-  "protocol": "SMTP",
-  "client_ip": "192.168.189.138",
-  "client_port": 40218,
-  "server_ip": "203.0.113.67",
-  "server_port": 25,
+  "protocol": "POP3",
+  "client_ip": "172.16.242.26",
+  "client_port": 43422,
+  "server_ip": "203.0.113.227",
+  "server_port": 110,
   "attack_type": "weak_cipher",
   "expected_severity": "HIGH",
   "ground_truth": {
     "tls_version": "TLS 1.0",
-    "cipher_suite": "TLS_RSA_WITH_RC4_128_SHA",
+    "cipher_suite": "TLS_RSA_WITH_3DES_EDE_CBC_SHA",
     "forward_secrecy": false,
     "cert_status": "valid",
     "starttls_status": "negotiated",
     "ja3_anomaly": false
   },
-  "generated_at": "2026-09-19T19:36:36.358336+00:00"
+  "generated_at": "2026-09-19T19:44:43.418118+00:00"
 }

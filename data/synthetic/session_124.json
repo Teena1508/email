@@ -1,11 +1,11 @@
 {
-  "session_id": "192.168.121.118:56330-192.168.1.33:110",
+  "session_id": "10.214.216.161:51154-203.0.113.196:110",
   "pcap_file": "session_124.pcap",
   "json_file": "session_124.json",
   "protocol": "POP3",
-  "client_ip": "192.168.121.118",
-  "client_port": 56330,
-  "server_ip": "192.168.1.33",
+  "client_ip": "10.214.216.161",
+  "client_port": 51154,
+  "server_ip": "203.0.113.196",
   "server_port": 110,
   "attack_type": "expired_cert",
   "expected_severity": "HIGH",
@@ -17,5 +17,5 @@
     "starttls_status": "negotiated",
     "ja3_anomaly": false
   },
-  "generated_at": "2026-09-19T19:36:36.195763+00:00"
+  "generated_at": "2026-09-19T19:44:43.271959+00:00"
 }

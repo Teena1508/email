@@ -1,12 +1,12 @@
 {
-  "session_id": "10.215.241.60:50295-192.168.1.36:465",
+  "session_id": "172.16.94.21:41962-192.168.1.245:587",
   "pcap_file": "session_137.pcap",
   "json_file": "session_137.json",
   "protocol": "SMTP",
-  "client_ip": "10.215.241.60",
-  "client_port": 50295,
-  "server_ip": "192.168.1.36",
-  "server_port": 465,
+  "client_ip": "172.16.94.21",
+  "client_port": 41962,
+  "server_ip": "192.168.1.245",
+  "server_port": 587,
   "attack_type": "clean_baseline",
   "expected_severity": "LOW",
   "ground_truth": {
@@ -17,5 +17,5 @@
     "starttls_status": "negotiated",
     "ja3_anomaly": false
   },
-  "generated_at": "2026-09-19T19:36:36.580934+00:00"
+  "generated_at": "2026-09-19T19:44:43.559336+00:00"
 }

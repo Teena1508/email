@@ -1,12 +1,12 @@
 {
-  "session_id": "172.16.32.177:44061-192.168.1.104:25",
+  "session_id": "192.168.114.75:54418-203.0.113.159:587",
   "pcap_file": "session_035.pcap",
   "json_file": "session_035.json",
   "protocol": "SMTP",
-  "client_ip": "172.16.32.177",
-  "client_port": 44061,
-  "server_ip": "192.168.1.104",
-  "server_port": 25,
+  "client_ip": "192.168.114.75",
+  "client_port": 54418,
+  "server_ip": "203.0.113.159",
+  "server_port": 587,
   "attack_type": "weak_cipher",
   "expected_severity": "HIGH",
   "ground_truth": {
@@ -17,5 +17,5 @@
     "starttls_status": "negotiated",
     "ja3_anomaly": false
   },
-  "generated_at": "2026-09-19T19:36:33.600359+00:00"
+  "generated_at": "2026-09-19T19:44:40.503048+00:00"
 }

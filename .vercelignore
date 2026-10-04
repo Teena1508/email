@@ -1,0 +1,28 @@
+# Frontend dependencies & build outputs (prevents 300MB+ node_modules from being included in Python serverless zip)
+frontend/node_modules
+node_modules
+frontend/dist
+frontend/.vite
+
+# Python virtual environments & caches
+venv
+.venv
+env
+ENV
+__pycache__
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache
+backend/.pytest_cache
+
+# Tests & Documentation
+tests
+backend/tests
+docs
+
+# Version control & metadata
+.git
+.gitignore
+.DS_Store
+*.md
